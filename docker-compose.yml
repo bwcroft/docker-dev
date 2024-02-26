@@ -1,0 +1,44 @@
+version: '3.8'
+
+networks:
+  default:
+    name: docker-dev
+
+volumes:
+  pgdata:
+  mongo_data:
+
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy:alpine
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"  
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  postgres:
+    container_name: postgres-db
+    image: postgres:16.2-alpine
+    hostname: localhost
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USERNAME:-root}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-root}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  mongodb:
+    container_name: mongo-db
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME:-root}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-root}
+    volumes:
+      - mongo_data:/data/db
