@@ -13,7 +13,7 @@ Make sure you have Docker and Docker Compose installed on your machine.
 
 1. Clone this repository to your local machine:
 
-    ``
+    ```
     $ git clone https://github.com/bwcroft/docker-dev.git
     ```
    
