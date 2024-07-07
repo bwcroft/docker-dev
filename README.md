@@ -11,44 +11,66 @@ Make sure you have Docker and Docker Compose installed on your machine.
 
 ## Getting Started
 
-1. Clone this repository to your local machine:
+1. Clone Repository:
 
-    ```
-    $ git clone https://github.com/bwcroft/docker-dev.git
-    ```
-   
-2. Running Environment   
-    
-    ```
-    cd docker-dev
-    ```
+   ```
+   $ git clone https://github.com/bwcroft/docker-dev.git
+   ```
 
-    #### Run All Containers
-    
-    ```
-    make start
-    ```
+2. Running Environment
 
-    #### Run Only Nginx
-    
-    ```
-    make nginx
-    ```
+   ##### All Containers - Start / Stop
 
-    #### Run Only Postgres
+   ```
+   make start
+   ```
 
-    ```
-    make postgres
-    ```
+   ```
+   make stop
+   ```
 
-    #### Run Only MongoDB
+   ##### Nginx Proxy - Start / Stop
 
-    ```
-    make mongodb
-    ```
-    
-    #### Stop All Containers
+   ```
+   make proxy
+   ```
 
-    ```
-    make stop
-    ```
+   ```
+   make proxy-stop
+   ```
+
+   ##### PostgreSQL - Start / Stop
+
+   ```
+   make postgres
+   ```
+
+   ```
+   make postgres-stop
+   ```
+
+   ##### MongoDB - Start / Stop
+
+   ```
+   make mongodb
+   ```
+
+   ```
+   make mongodb-stop
+   ```
+
+## Database Information
+
+1. All databases have the same username and password
+
+   ##### Username
+
+   ```
+   root
+   ```
+
+   ##### Password 
+
+   ```
+   root
+   ```
